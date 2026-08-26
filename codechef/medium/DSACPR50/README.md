@@ -53,7 +53,7 @@ Test Case $3.$ For the third array, it's $23$ $($from subarray $[5, 4, -1, 7, 8]
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-26T06:36:03.914Z  
+**Submitted:** 2026-08-26T06:39:40.734Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -74,8 +74,8 @@ int main() {
         //     cout<<arr[i]<<" ";
         // }
         // cout<<endl;
-    int sum=0;
-    int end_sum=arr[0];
+    long long sum=0;
+    long long  end_sum=arr[0];
     
         for(int i=0;i<n;i++){
         sum = sum + arr[i];
