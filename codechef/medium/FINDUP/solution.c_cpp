@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+int arr[200005];
+int main() {
+    // // your code goes here
+    // int t;
+    // cin >> t;
+    // while (t--) {
+    //      int n, value_dup = 0;
+    //      cin >> n;
+    //      int arr[n + 1];
+    //      for (int i = 0; i < n + 1; i++) {
+    //          cin >> arr[i];
+    //      }
+
+    //      int max_count = 0, current_count;
+    //      for (int i = 0; i < n + 1; i++) {
+    //          int current_count = 0;
+    //          for (int key = i + 1; key < n + 1; key++) {
+    //              if (arr[key] == arr[i]) {
+    //                  current_count++;
+    //              }
+    //          }
+    //          if (current_count > max_count) {
+    //              max_count = current_count;
+    //              value_dup = arr[i];
+    //          }
+    //      }
+
+    //      cout << value_dup << endl;
+
+    // }
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int value_dup;
+        for(int i=0;i<n+1;i++){
+            cin>>arr[i];
+        }
+        sort(arr,arr +n+1);
+        value_dup = *adjacent_find(arr, arr + n + 1);
+        
+        cout << value_dup << "\n";
+        
+    
+    }
+    return 0;
+}
