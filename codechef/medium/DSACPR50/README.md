@@ -53,7 +53,7 @@ Test Case $3.$ For the third array, it's $23$ $($from subarray $[5, 4, -1, 7, 8]
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-26T06:37:05.979Z  
+**Submitted:** 2026-08-26T06:36:03.914Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
