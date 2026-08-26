@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& arr) {
+        // wrtie your code here
+        int majorityElement=0;
+        int count=0;
+        for(int x : arr){
+            if(count ==0){
+                majorityElement=x;
+                count=1;
+            }
+            else if (x==majorityElement){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        return majorityElement;
+    }
+};
