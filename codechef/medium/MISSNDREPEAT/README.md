@@ -66,7 +66,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-27T04:30:38.268Z  
+**Submitted:** 2026-08-27T04:38:54.360Z  
 
 ```c_cpp
 class Solution {
@@ -74,24 +74,19 @@ public:
     vector<int> findRepeatingAndMissing(const vector<int>& arr) {
         int repeating_element,missing_element;
         long long n=arr.size();
-        
-        int sum=0;
-        long long expected_sum=n*(n+1)/2;
+        long long sum , sq_sum , expected_sum, expected_sq_sum;
+        sum=0; sq_sum=0;
+        expected_sum=n*(n+1)/2;
+        expected_sq_sum= n*(n+1)*(2*n+1)/6 ;
         for(int i=0;i<n;i++){
-            for(int j=i+1;j<n;j++){
-                if (arr[i]==arr[j]){
-                repeating_element=arr[j];
-                break;
-                }
-                }
+            sum+= arr[i];
+            sq_sum+= arr[i]*arr[i];
         }
-      
-        for(int i=0;i<n;i++){
-            sum=sum+arr[i];
-        }
-        sum = sum - repeating_element;
-        missing_element = expected_sum - sum;
-        
+       long long val1= expected_sum-sum; //x-y
+      long long  val2= expected_sq_sum-sq_sum;
+      long long   val3= val2/val1;   //x+y
+      missing_element = (val3+val1)/2;
+      repeating_element= val3-missing_element;
         return {repeating_element, missing_element};
     }
 };
