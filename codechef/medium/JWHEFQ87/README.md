@@ -4,90 +4,97 @@
 
 ## Problem
 
-### DDMM or MMDD
+### Largest Odd Substring
 
-Chef is confused by all the different formats dates can be written in. Here's a simple problem Chef wants you to solve.
+You are given a string $nums$ consisting of digits representing a large integer. Your task is to find the largest-valued  **odd integer**  (as a substring of $nums$) that can be obtained.
 
-You are given a date string $S$. The date follows the Gregorian calendar, the one used in most parts of the world.
+A  **substring**  is a contiguous sequence of characters within the string.
 
-Identify whether it is of the form `DD/MM/YYYY` or `MM/DD/YYYY`, or if it can be of both forms. Here `DD` denotes the 2-digit day, `MM` denotes the 2-digit month and `YYYY` denotes the 4-digit year.
-
-It is guaranteed that $S$ is a valid date taking at least one of these forms.
-
-For example,
-
-- 21/05/2001 is of the form DD/MM/YYYY and not MM/DD/YYYY.
-- 10/15/2069 is of the form MM/DD/YYYY and not DD/MM/YYYY.
-- 05/11/1999 can be of both forms.
+## Constraints
+- $1 \le |num| \le 10^5$
+- The string $num$ contains only digits $0–9$
+- The string does not contain leading zeros
+- There is no limit on the size of the integer represented by the substring
 ### Input Format
-- The first line contains a single integer $T$ — the number of test cases. Then the test cases follow.
-- Each test case consists of a single line containing a string of $10$ characters $S$ — the date string $S$, which is of the form DD/MM/YYYY or MM/DD/YYYY. It is guaranteed that $S$ is a valid date taking at least one of these forms.
+- The first line contains a single string num.
 ### Output Format
-
-For each test case, output "`BOTH`" if the date string satisfies both forms. Otherwise output "`DD/MM/YYYY`" if it is of the form `DD/MM/YYYY`, else "`MM/DD/YYYY`". Note that the output may be case-insensitive. So "`DD/MM/YYYY`", "`dd/mm/yyyy`" and so on will be considered the same.
-
-### Constraints
-- $1 \leq T \leq 2023$
-- $S$ is of the form DD/MM/YYYY or MM/DD/YYYY
+- Print a single line: The largest odd integer substring of num Or -1 if no odd substring exists
 ### Sample 1:
 Input
 Output
 
 ```
-4
-21/05/2001
-10/15/2069
-05/11/1999
-29/02/2024
+128764
 
 ```
 
 ```
-DD/MM/YYYY
-MM/DD/YYYY
-BOTH
-DD/MM/YYYY
+1287
 
 ```
 
 ### Explanation:
 
-Fun fact: `29/02/2024` (read as `DD/MM/YYYY`) is a leap year day.
+The largest odd substring ends at the first odd digit from the right, which is '7'.
+
+### Sample 2:
+Input
+Output
+
+```
+60042
+
+```
+
+```
+-1
+
+```
+
+### Explanation:
+
+There are no odd digits in the string, so no odd substring exists.
+
+### Sample 3:
+Input
+Output
+
+```
+987654321
+
+```
+
+```
+987654321
+
+```
+
+### Explanation:
+
+The last digit is '1', which is odd, so the entire number is the largest odd substring.
 
 ## Solution
 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-27T08:54:55.680Z  
+**Submitted:** 2026-08-27T09:13:23.917Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    int t;
-    cin>>t;
-    while(t--){
-        int part1,part2,year;
-        char slash1,slash2;
-        string s;
-        cin>>s;
-        // your code goes here
-      string first=s.substr(0,2);
-      int num1=stoi(first);
-      string second=s.substr(3,2);
-      int num2=stoi(second);
-      if(num1>12){
-          cout<<"DD/MM/YYYY"<<endl;
-      }
-      else if (num2>12){
-          cout<<"MM/DD/YYYY"<<endl;
-      }
-      else{
-          cout<<"BOTH"<<endl;
-      }
+	// your code goes here
+    string num;
+    cin>>num;
+    for(int i=num.length()-1;i>=0;i--){
+        if((num[i]-'0')%2!=0){
+            cout<<num.substr(0,i+1)<<endl;
+            return 0;
+        }
     }
+    cout<<"-1"<<endl;
     return 0;
 }
 
