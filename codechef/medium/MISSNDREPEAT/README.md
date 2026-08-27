@@ -66,7 +66,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-27T04:38:54.360Z  
+**Submitted:** 2026-08-27T04:40:08.190Z  
 
 ```c_cpp
 class Solution {
@@ -80,7 +80,7 @@ public:
         expected_sq_sum= n*(n+1)*(2*n+1)/6 ;
         for(int i=0;i<n;i++){
             sum+= arr[i];
-            sq_sum+= arr[i]*arr[i];
+            sq_sum+= (long long)arr[i]*(long long)arr[i];
         }
        long long val1= expected_sum-sum; //x-y
       long long  val2= expected_sq_sum-sq_sum;
