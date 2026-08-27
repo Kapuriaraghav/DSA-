@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        long long x;
+        cin>>x;
+        cin>>s;
+        long long carlson_points=0;
+        long long chef_points=0;
+        for(char ch: s){
+            if (ch=='C'){
+                carlson_points+=2;
+            }
+            if(ch=='N'){
+                chef_points+=2;
+            }
+            if(ch=='D'){
+                carlson_points+=1;
+                chef_points+=1;
+            }
+        }
+        long long prize=0;
+        if(carlson_points>chef_points){
+            prize=60*x;
+        }
+       else if(carlson_points<chef_points){
+            prize=40*x;
+        }
+       else if(carlson_points==chef_points){
+            prize=55*x;
+        }
+        cout<<prize<<endl;
+    }
+    return 0;
+}
