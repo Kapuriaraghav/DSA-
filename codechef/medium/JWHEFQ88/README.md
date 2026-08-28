@@ -56,7 +56,7 @@ Programming In PYTHON
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-28T15:52:00.812Z  
+**Submitted:** 2026-08-28T15:52:25.184Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
