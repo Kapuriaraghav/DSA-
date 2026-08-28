@@ -3,14 +3,32 @@ using namespace std;
 
 int main() {
 	// your code goes here
-    string num;
-    cin>>num;
-    for(int i=num.length()-1;i>=0;i--){
-        if((num[i]-'0')%2!=0){
-            cout<<num.substr(0,i+1)<<endl;
-            return 0;
+    int t ;
+    cin>>t;
+    cin.ignore();
+    while(t--){
+        string s;
+        getline(cin,s);
+        stringstream ss(s);
+        string word;
+        while(ss>>word){
+            bool is_acronym=true;
+            for(char c: word){
+            if(isupper(c)==false){
+               is_acronym=false;
+               break;
+            }
+            }
+               if(is_acronym==false){
+                   word[0]=toupper(word[0]);
+                   for(int i=1;i<word.length();i++){
+                       word[i]=tolower(word[i]);
+                   }
+               }
+               cout<<word<<" ";
+            }
+          cout<<endl;
         }
+      
     }
-    cout<<"-1"<<endl;
-    return 0;
-}
+
