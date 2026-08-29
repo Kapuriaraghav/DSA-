@@ -2,26 +2,32 @@
 using namespace std;
 
 int main() {
-	// your code goes here
     int t;
     cin>>t;
     while(t--){
+        int n;
+        cin>>n;
         string s;
         cin>>s;
-        bool all_nine=true;
-        for (int i=s.length()-1;i>=0;i--){
-            if(s[i]=='9'){
-                s[i]='0';
+        string ans;
+        string ans1;
+        // your code goes here
+        for(int i=0;i<s.length()-1;i+=2){
+            if(s[i]=='0' && s[i+1]=='0'){
+            ans='A';    
             }
-            else{
-                all_nine=false;
-                s[i]=s[i]+1;
-                break;
+           else  if(s[i]=='0' && s[i+1]=='1'){
+            ans='T';    
             }
+           else  if(s[i]=='1' && s[i+1]=='0'){
+            ans='C';    
+            }
+           else  if(s[i]=='1' && s[i+1]=='1'){
+            ans='G';    
+            }
+            cout<<ans;
         }
-        if(all_nine){
-            s="1"+s;
-        }
-        cout<<s<<endl;
+        cout<<endl;
     }
+
 }
