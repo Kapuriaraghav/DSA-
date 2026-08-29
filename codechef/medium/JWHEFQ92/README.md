@@ -70,7 +70,7 @@ word123
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T06:44:04.921Z  
+**Submitted:** 2026-08-29T06:44:51.894Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
