@@ -70,7 +70,7 @@ word123
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T06:44:51.894Z  
+**Submitted:** 2026-08-29T06:49:17.995Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -80,7 +80,7 @@ int main() {
 	// your code goes here
     int t;
     cin>>t;
-    cin.ignore();
+    cin.ignore(256,'\n');
     while(t--){
         string s;
         getline(cin,s);
