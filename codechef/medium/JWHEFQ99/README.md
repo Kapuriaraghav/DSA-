@@ -4,87 +4,104 @@
 
 ## Problem
 
-### Different Consecutive Characters
+### Chef and Happy String
 
-Chef has a binary string $S$ of length $N$. Chef can perform the following operation on $S$:
+Chef has a string $S$ with him. Chef is happy if the string contains a  **contiguous substring**  of length  **strictly greater**  than $2$ in which all its characters are vowels.
 
-- Insert any character ($0$ or $1$) at any position in $S$.
+Determine whether Chef is happy or not.
 
-Find the minimum number of operations Chef needs to perform so that no two consecutive characters are same in $S$.
+Note that, in english alphabet, vowels are `a`, `e`, `i`, `o`, and `u`.
 
 ### Input Format
-- The first line contains a single integer $T$ — the number of test cases. Then the test cases follow.
-- The first line of each test case contains an integer $N$ — the length of the binary string $S$.
-- The second line of each test case contains a binary string $S$ of length $N$ containing $0$s and $1$s only.
+- First line will contain $T$, number of test cases. Then the test cases follow.
+- Each test case contains of a single line of input, a string $S$.
 ### Output Format
 
-For each test case, output on a new line the minimum number of operations Chef needs to perform so that no two consecutive characters are same in $S$.
+For each test case, if Chef is happy, print `HAPPY` else print `SAD`.
+
+You may print each character of the string in uppercase or lowercase (for example, the strings `hAppY`, `Happy`, `haPpY`, and `HAPPY` will all be treated as identical).
 
 ### Constraints
-- $1 \leq T \leq 100$
-- $1 \le N \le 1000$
+- $1 \leq T \leq 1000$
+- $3 \leq |S| \leq 1000$, where $|S|$ is the length of $S$.
+- $S$ will only contain lowercase English letters.
 ### Sample 1:
 Input
 Output
 
 ```
-3
-2
-11
 4
-0101
-5
-00100
+aeiou
+abxy
+aebcdefghij
+abcdeeafg
 
 ```
 
 ```
-1
-0
-2
+Happy
+Sad
+Sad
+Happy
 
 ```
 
 ### Explanation:
 
- **Test case 1:**  We can perform the following operations: $11 \rightarrow 1\underline{0}1$.
+ **Test case $1$:**  Since the string `aeiou` is a contiguous substring and consists of all vowels and has a length $\gt 2$, Chef is happy.
 
- **Test case 2:**  We do not need to perform any operations.
+ **Test case $2$:**  Since none of the contiguous substrings of the string consist of all vowels and have a length $\gt 2$, Chef is sad.
 
- **Test case 3:**  We can perform the following operations: $00100 \rightarrow 0\underline{1}0100 \rightarrow 01010\underline{1}0$.
+ **Test case $3$:**  Since none of the contiguous substrings of the string consist of all vowels and have a length $\gt 2$, Chef is sad.
+
+ **Test case $4$:**  Since the string `eea` is a contiguous substring and consists of all vowels and has a length $\gt 2$, Chef is happy.
 
 ## Solution
 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T12:18:21.389Z  
+**Submitted:** 2026-08-29T12:37:45.670Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-	// your code goes here
     int t;
     cin>>t;
     while(t--){
-     int n;
-     cin>>n;
-     string s;
-     cin>>s;
-     int length;
-     int count=0;
-     length=s.length();
-     for(int i=0;i<length;i++){
-        if(s[i]==s[i+1]){
-            count++;
+        string s;
+        cin>>s;
+        bool happy=false;
+        int n=s.length();
+        int streak=0;
+        for(int i=0;i<n;i++){
+            if(streak<0){
+                streak=0;
+            }
+            else if(streak==3){
+                happy=true;
+                break;
+            }
+            else if(s[i]== 'a' || s[i]== 'e' || s[i]== 'i' || s[i]== 'o' || s[i]== 'u' ){
+                streak++;
+            }
+            else{
+                streak=0;
+            }
         }
-     }
-     cout<<count<<endl;
-     
+        if(happy){
+            cout<<"HAPPY"<<endl;
+        }
+        else{
+            cout<<"SAD"<<endl;
+        }
+            
+        }
     }
-}
+
+
 
 ```
 
