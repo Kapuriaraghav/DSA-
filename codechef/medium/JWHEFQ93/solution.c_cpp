@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        int n=s.length();
+        int ans;
+        int twodig;
+        if(n==1){
+            ans=(s[0]-'0')%20;
+        }
+        else{
+            int tens_digit = s[n-2]-'0';
+            int ones_digit=  s[n-1]-'0';
+            twodig=(tens_digit*10)+ones_digit;
+            ans=twodig%20;
+        }
+       
+        
+        cout<<ans<<endl;
+    }
+
+}
