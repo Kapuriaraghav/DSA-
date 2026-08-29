@@ -4,100 +4,108 @@
 
 ## Problem
 
-### Add One
+### DNA Storage
 
-You are given a large number $N$. You need to print the number $N+1$.
+For encoding an even-length binary string into a sequence of `A`, `T`, `C`, and `G`, we iterate from  **left to right**  and replace the characters as follows:
 
-Note: The number is very large and it will not fit in standard integer data type. You have to take the input as String and then manipulate the digits to convert it to $N + 1$.
+- 00 is replaced with A
+- 01 is replaced with T
+- 10 is replaced with C
+- 11 is replaced with G
+
+Given a binary string $S$ of length $N$ ($N$ is even), find the encoded sequence.
 
 ### Input Format
-- The first line of the input contains a single integer $T$ - the number of test cases. The description of $T$ test cases follows.
-- The first line of each test case contains a single integer $N$.
+- First line will contain $T$, number of test cases. Then the test cases follow.
+- Each test case contains two lines of input.
+- First line contains a single integer $N$, the length of the sequence.
+- Second line contains binary string $S$ of length $N$.
 ### Output Format
-- For each test case, print a single line string - the number $N+1$.
+
+For each test case, output in a single line the encoded sequence.
+
+ **Note:**  Output is  **case-sensitive**.
+
 ### Constraints
 - $1 \leq T \leq 100$
-- $1 \leq N \leq 10^{200000}-1$
-- the sum of the number of digits of all $N$ in a single test file does not exceed $4 \cdot 10^{5}$
-### Subtasks
-
- **Subtask #1 (30 points):** 
-
-- each digit of the number $N$ is at most $8$
-
- **Subtask #2 (70 points):**  original constraints
-
+- $2 \leq N \leq 10^3$
+- $N$ is even.
+- Sum of $N$ over all test cases is at most $10^3$.
+- $S$ contains only characters 0 and 1.
 ### Sample 1:
 Input
 Output
 
 ```
+4
+2
+00
+4
+0011
 6
-99
-17
-1
-599
-10000000000000000000
-549843954323494990404
+101010
+4
+1001
+
 ```
 
 ```
-100
-18
-2
-600
-10000000000000000001
-549843954323494990405
+A
+AG
+CCC
+CT
 ```
 
 ### Explanation:
 
- **Example case 1:**  $N=99$ so $N+1=100$.
+ **Test case $1$:**  Based on the rules `00` is replaced with `A`.
 
- **Example case 2:**  $N=17$ so $N+1=18$.
+ **Test case $2$:**  Based on the rules `00` is replaced with `A`. Similarly, `11` is replaced with `G`. Thus, the encoded sequence is `AG`.
 
- **Example case 3:**  $N=1$ so $N+1=2$.
+ **Test case $3$:**  The first two characters are `10` which is encoded as `C`. Similarly, the next two characters `10` are encoded as `C` and the last two characters `10` are encoded as `C`. Thus, the encoded string is `CCC`.
 
- **Example case 4:**  $N=599$ so $N+1=600$.
-
- **Example case 5:**  $N=10000000000000000000$ so $N+1=10000000000000000001$.
-
- **Example case 6:**  $N=549843954323494990404$ so $N+1=549843954323494990405$.
+ **Test case $4$:**  The first two characters are `10` which is encoded as `C`. Similarly, the next two characters `01` are encoded as `T`. Thus, the encoded string is `CT`.
 
 ## Solution
 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T08:20:15.461Z  
+**Submitted:** 2026-08-29T08:30:28.542Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-	// your code goes here
     int t;
     cin>>t;
     while(t--){
+        int n;
+        cin>>n;
         string s;
         cin>>s;
-        bool all_nine=true;
-        for (int i=s.length()-1;i>=0;i--){
-            if(s[i]=='9'){
-                s[i]='0';
+        string ans;
+        string ans1;
+        // your code goes here
+        for(int i=0;i<s.length()-1;i+=2){
+            if(s[i]=='0' && s[i+1]=='0'){
+            ans='A';    
             }
-            else{
-                all_nine=false;
-                s[i]=s[i]+1;
-                break;
+           else  if(s[i]=='0' && s[i+1]=='1'){
+            ans='T';    
             }
+           else  if(s[i]=='1' && s[i+1]=='0'){
+            ans='C';    
+            }
+           else  if(s[i]=='1' && s[i+1]=='1'){
+            ans='G';    
+            }
+            cout<<ans;
         }
-        if(all_nine){
-            s="1"+s;
-        }
-        cout<<s<<endl;
+        cout<<endl;
     }
+
 }
 
 ```
