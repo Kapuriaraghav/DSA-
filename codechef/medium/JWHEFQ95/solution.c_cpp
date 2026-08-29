@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        bool all_nine=true;
+        for (int i=s.length()-1;i>=0;i--){
+            if(s[i]=='9'){
+                s[i]='0';
+            }
+            else{
+                all_nine=false;
+                s[i]=s[i]+1;
+                break;
+            }
+        }
+        if(all_nine){
+            s="1"+s;
+        }
+        cout<<s<<endl;
+    }
+}
