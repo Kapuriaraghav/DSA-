@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    cin.ignore();
+    while(t--){
+        string s;
+        getline(cin,s);
+        long long num=0;
+        int sign=1;
+        int i=0;
+        while(i<s.length() && s[i]==' '){
+            i++;
+        }
+        if(i<s.length() && (s[i]=='-' || s[i]=='+')){
+            if(s[i]=='-'){
+                sign=-1;
+            }
+            i++;
+        }
+        
+        while(i<s.length()&&isdigit(s[i])){
+            num=(num*10) + (s[i]-'0');
+            i++;
+            if(num>2147483647){
+                break;
+            }
+        }
+        num=num*sign;
+        if(num>2147483647){
+            cout<<"2147483647"<<endl;;
+        }
+        else if(num<-2147483648){
+            cout<<"-2147483648"<<endl;;
+        }
+        else{
+            cout<<num<<endl;
+        }
+    }
+}
