@@ -2,36 +2,17 @@
 using namespace std;
 
 int main() {
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        string s;
-        cin>>s;
-        int A_score=0;
-        int B_score=0;
-        bool A_server=true;
-        bool B_server=false;
-        int length;
-        length=s.length();
-        for(int i=0;i<length;i++){
-            if(A_server==true && s[i]=='A'){
-                A_score++;
-            }
-        else    if(B_server==true && s[i]=='B'){
-                B_score++;
-            }
-        else    if(A_server==false && s[i]=='A'){
-                A_server=true;
-                B_server=false;
-            }
-           else  if(B_server==false && s[i]=='B'){
-                B_server=true;
-                A_server=false;
-            }
-        }
-        cout<<A_score<<" "<<B_score<<endl;
-    }
-
+	// your code goes here
+    string s;
+    string t;
+    cin>>s>>t;
+    int n=s.length();
+    sort(s.begin(),s.end());
+    sort(t.begin(),t.end());
+   if(s==t){
+       cout<<"YES"<<endl;
+   }
+   else{
+       cout<<"NO"<<endl;
+   }
 }
