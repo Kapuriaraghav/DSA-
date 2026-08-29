@@ -53,7 +53,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T13:32:44.387Z  
+**Submitted:** 2026-08-29T13:33:33.492Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -66,8 +66,8 @@ int main() {
     while(t--){
         string s;
         cin>>s;
-        int current_depth;
-        int max_depth;
+        int current_depth=0;
+        int max_depth=0;
         for(int i=0;i<s.length();i++){
             if(s[i]=='('){
                 current_depth++;
