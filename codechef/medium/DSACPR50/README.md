@@ -4,98 +4,87 @@
 
 ## Problem
 
-### Maximum Subarray Sum
+### Find the majority element
 
-Given an integer array $nums$, find the  **subarray**  with the largest sum, and print its sum.
+You are given an array $arr$ containing $n$ integers. Your task is to return the  **majority element**.
 
- **Note** : A subarray is a contiguous non-empty sequence of elements within an array.
+A majority element is defined as the element that occurs  **more than $⌊n / 2⌋$ times**. It is guaranteed that such an element always exists.
 
+$⌊n / 2⌋$ => The floor value means if 5 divided by 2 equals 2.5, we’ll choose 2 as the output because of the floor function. 
+
+### Follow-up:
+
+Can you solve this problem in  **O(n)**  time complexity while using only  **O(1) extra space** ?
+
+## Function Declaration
+### Function Name
+
+$majorityElement$ – Finds the element that appears more than $⌊n / 2⌋$ times in the array.
+
+### Parameters
+- $arr$ : A list/array of integers of size $n$.
+### Return Value
+- Returns an integer — the majority element that appears more than half the time in the array.
+## Constraints:
+- $1 \leq T \leq 50,000$
+- $n == arr.length$
+- $1 \leq n \leq 50,000$
+- $-10^9 \leq arr[i] \leq 10^9$
 ### Input Format
-- The first line contains $T$, the number of test cases.
-- The first line in each test case contains $N$, the number of elements in an array.
-- The second line in each test case contains $N$ integers, denoting the elements in the array.
+- $T$ → number of test cases
+- For each test case: Line 1 → $n$ (array size) Line 2 → n integers representing the array
 ### Output Format
 
-For each test case, output the maximum subarray sum of each array.
+One value per test case.
 
-### Constraints
-- $1 \leq T \leq 100$
-- $1 \leq N \leq 100000$
-- $-10^9 \leq A_i \leq 10^9$
 ### Sample 1:
 Input
 Output
 
 ```
-3
-9
--2 1 -3 4 -1 2 1 -5 4
-1
-1
-5
-5 4 -1 7 8
-```
-
-```
+2
 6
-1
-23
+7 1 7 7 3 7
+3
+5 5 2
+
 ```
 
-### Explanation:
+```
+7
+5
 
-Test Case $1.$ The maximum subarray sum for the first array is $6$ $($from subarray $[4, -1, 2, 1])$.
-Test Case $2.$ For the second array, it's $1$ $($only one element $).$
-Test Case $3.$ For the third array, it's $23$ $($from subarray $[5, 4, -1, 7, 8]).$
+```
 
 ## Solution
 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-26T06:39:40.734Z  
+**Submitted:** 2026-08-30T10:22:44.907Z  
 
 ```c_cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        int arr[n];
-        for(int i=0;i<n;i++){
-            cin>>arr[i];
+class Solution {
+public:
+    int majorityElement(vector<int>& arr) {
+        // wrtie your code here
+        int majorityElement=0;
+        int count=0;
+        for(int x : arr){
+            if(count ==0){
+                majorityElement=x;
+                count=1;
+            }
+            else if (x==majorityElement){
+                count++;
+            }
+            else{
+                count--;
+            }
         }
-        
-        //  for(int i=0;i<n;i++){
-        //     cout<<arr[i]<<" ";
-        // }
-        // cout<<endl;
-    long long sum=0;
-    long long  end_sum=arr[0];
-    
-        for(int i=0;i<n;i++){
-        sum = sum + arr[i];
-         if(sum>end_sum){
-            end_sum=sum;
-            
-        }
-        if(sum<0){
-            sum=0;
-        }
-        
-        }
-        
-       
-        
-    
-    cout<<end_sum<<endl;
+        return majorityElement;
     }
-    return 0;
-}
+};
 
 ```
 
