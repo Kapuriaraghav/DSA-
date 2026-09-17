@@ -12,6 +12,7 @@ int main() {
         if(s[i]==one){
             
             position=i;
+            break;
         }
     }
     cout<<position<<endl;
