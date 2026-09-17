@@ -4,28 +4,16 @@
 
 ## Problem
 
-### Simulate Stack - 1
-
-Given some stack operation, Find what will be the resultant output after the following operations.
-
-### Operations
-- Push 4
-- Pop
-- Push 11
-- Peek
-- Pop
-- Peek
-
- **Print the stack top value once we call peek**
+_Description not available._
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T19:09:16.441Z  
+**Submitted:** 2026-09-17T19:09:01.070Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
