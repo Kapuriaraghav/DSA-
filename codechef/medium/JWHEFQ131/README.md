@@ -36,7 +36,7 @@ g
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T05:15:24.615Z  
+**Submitted:** 2026-09-17T05:14:21.830Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -53,7 +53,6 @@ int main() {
         if(s[i]==one){
             
             position=i;
-            break;
         }
     }
     cout<<position<<endl;
