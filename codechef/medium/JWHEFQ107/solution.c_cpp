@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	string s;
+	cin>>s;
+	int n;
+	cin>>n;
+    bool known[26]={false};
+    // bool canread=true;
+    for(int i = 0 ; i < s.length() ; i++ ){
+        known[s[i]-'a']=true;
+    }
+    for(int i =0 ; i < n  ; i++){
+        string word;
+        cin>>word;
+        bool canread=true;
+        for(int j = 0 ; j<word.length();j++)
+        if(!known[word[j]-'a']){
+            canread=false;
+            break;
+        }
+    
+    if(canread){
+        cout<<"Yes"<<endl;
+    }
+    else{
+        cout<<"No"<<endl;
+    }
+}
+}
