@@ -47,7 +47,7 @@ $7$ is present at the index $3$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T12:06:43.471Z  
+**Submitted:** 2026-09-17T12:05:29.509Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -62,9 +62,8 @@ int arr[n];
 for(int i = 0 ; i<n ; i++){
     cin>>arr[i];
 }
-
+int answer=-1;
 while(q--){
-    int answer=-1;
 int left =0 ;
 int right =n-1;
 int target;
