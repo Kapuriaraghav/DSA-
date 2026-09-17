@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Chardata{
+    public:
+    int count;
+    char letter;
+};
+
+bool CompareChars(Chardata a, Chardata b){
+        if(a.count!=b.count){
+            return a.count>b.count;
+        }
+        else{
+            return a.letter<b.letter;
+        }
+    }
+
+int main(){
+    string s;
+    cin>>s;
+    Chardata freq[256];
+    for(int i = 0 ; i<256; i++){
+        freq[i].count=0;
+        freq[i].letter=i;
+    }
+    for(int i = 0 ; i<s.length() ; i++){
+        freq[s[i]].count++;
+    }
+    sort(freq,freq+256,CompareChars);
+    for(int i = 0 ; i < 256 ; i++){
+        if(freq[i].count==0){
+            break;
+        }
+        for(int j = 0 ; j<freq[i].count ; j++){
+            cout<<freq[i].letter;
+        }
+    }
+    cout<<endl;
+    
+}
