@@ -38,7 +38,7 @@ It’s important to note that with the pop operation, you're typically not physi
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T12:27:33.107Z  
+**Submitted:** 2026-09-17T19:05:02.003Z  
 
 ```c_cpp
 #define MAX_SIZE 101
@@ -46,7 +46,7 @@ int a[MAX_SIZE];
 int top = -1;
 
 void push(int ele){
-    if(top <= MAX_SIZE - 1){ // Remove __ and complete the push function
+    if(top < MAX_SIZE - 1){ // Remove __ and complete the push function
         a[++top] =  ele;
         cout<<"Pushed: "<<ele<<"\n";
     }
@@ -57,8 +57,8 @@ void push(int ele){
 
 int pop(){
     if(top >= 0){
-        int ele = a[top--];
-        ele; // Remove __ and complete the pop function
+        int ele = a[top];
+        top--; // Remove __ and complete the pop function
         cout<<"Popped: "<<ele<<"\n";
         return ele;
     }
