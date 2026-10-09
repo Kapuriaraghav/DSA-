@@ -1,24 +1,19 @@
 /*struct Node {
-    int data;
-    struct Node* next;
-    Node(int data)
-    {
-        this->data = data;
-        next = NULL;
-    }
+	int val;
+	struct Node* next;
+	Node(int x){
+		val = x;
+		next = NULL;
+	}
 };*/
 
-Node* listReverse(Node* head) {
-    Node* next=head;
-    Node* curr=head;
-    Node* prev=NULL;
+int getMiddleElement(Node* head){
+    Node* fast=head;
+    Node* slow=head;
     
-    while(curr!=NULL){
-        next=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=next;
+    while(fast!=NULL && fast->next!=NULL){
+        slow=slow->next;
+        fast=fast->next->next;
     }
-    // 
-    return prev;
+    return slow->val;
 }
