@@ -26,7 +26,7 @@ Read and understand the code and then submit to see what it does.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T10:09:43.701Z  
+**Submitted:** 2026-10-09T07:59:34.047Z  
 
 ```c_cpp
 #include <iostream>
