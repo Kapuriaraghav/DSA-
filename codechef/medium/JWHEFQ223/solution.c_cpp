@@ -69,7 +69,7 @@ void deleteNode(int value) {
     }
     
     if (targetNode == head) {
-        head = NULL;
+        head = B;
     }
 }
 
