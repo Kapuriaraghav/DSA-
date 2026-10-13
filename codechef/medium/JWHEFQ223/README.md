@@ -43,7 +43,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-13T08:20:58.959Z  
+**Submitted:** 2026-10-13T08:23:38.812Z  
 
 ```c_cpp
 #include <iostream>
@@ -117,7 +117,7 @@ void deleteNode(int value) {
     }
     
     if (targetNode == head) {
-        head = NULL;
+        head = B;
     }
 }
 
